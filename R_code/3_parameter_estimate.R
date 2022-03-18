@@ -21,8 +21,11 @@ dat_list <- c()
 ## (i becomes 1:4, over the iterations)
 
 for(i in 1:4)
+{
   dat_list[i] <- list(read.xlsx("C://Users/ma22buky/Documents/ralf_help/Bateman_Daten.xlsx", 
                                 sheetIndex = i)) 
+  dat_list[[i]]$proband <- i
+}
 
 ## run the models and hope for the best
 mod_list <- c()
@@ -47,7 +50,7 @@ summary(mod_list[[4]])
 
 dat <- do.call("rbind", dat_list)
 
-ggplot(dat, aes(x = Zeit_min, y = Laktat_real, color = as.character(probant))) + geom_point() +
+ggplot(dat, aes(x = Zeit_min, y = Laktat_real, color = as.character(proband))) + geom_point() +
   geom_line(dat, mapping = aes(x = Zeit_min, y = predi, color = as.character(probant)))
 
 
