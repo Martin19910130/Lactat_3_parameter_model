@@ -8,6 +8,8 @@ gc()
 ## load packages we need
 library(xlsx)
 library(minpack.lm)
+library(dplyr)
+library(ggplot2)
 
 ## read the data
 ## since we can't fill something on a specific index in 
